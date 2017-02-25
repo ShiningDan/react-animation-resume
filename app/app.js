@@ -12,7 +12,7 @@ class ReactClass extends React.Component {
 		this.state = {
 			style: "",
 		};
-		this.interval = 50;
+		this.interval = 40;
 		this.resumeEditorContent = `
 # 张雨晨
 
@@ -28,11 +28,11 @@ class ReactClass extends React.Component {
 
 * 基于 SDN 为数据中心远程医疗平台提供防火墙、DDoS 防御、QoS 保障、链路快速恢复、路由环路与黑洞检测能力。
 
-### React Gallery
+### [React Gallery](https://shiningdan.github.io/react-gallery/) (点击链接试试吧)
 
 * React 和 Webpack 制作的画廊应用效果
 
-### Animation Resume
+### [Animation Resume](https://shiningdan.github.io/react-animation-resume/) (点击链接试试吧)
 
 * React 和 Webpack 制作的简历自动演示效果。
 
@@ -40,9 +40,11 @@ class ReactClass extends React.Component {
 ## 教育经历
 
 1. **北京邮电大学 - 通信工程**             研究生
+
 	* 校一等奖学金
 
 2. **北京邮电大学 - 通信工程**             本科生
+
 	* 连续三年国家励志奖学金（专业前 10 %）
 
 ## 其他
@@ -146,7 +148,10 @@ html{
 	display: inline-block;
 	margin: 0.5em 0;
 }
-.resumeEditor ul {
+.resumeEditor a{
+	color: #000;
+}
+.resumeEditor ul{
 	list-style: none;
 }
 .resumeEditor ul>li::before {
