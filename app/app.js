@@ -4,6 +4,7 @@ import StyleEditor from "./StyleEditor.js";
 import ResumeEditor from "./ResumeEditor.js";
 import "./style/reset.css";
 import Prism from "prismjs";
+import co from "co";
 
 class ReactClass extends React.Component {
 	constructor(props) {
@@ -12,44 +13,60 @@ class ReactClass extends React.Component {
 			style: "",
 		};
 		this.interval = 50;
-		this.resumeEditorContent = `方应杭
+		this.resumeEditorContent = `
+# 张雨晨
 
 
-资深前端工程师，资深前端讲师，现在在 [饥人谷](http://jirengu.com) 教前端课程。
+## 项目及实习经历
+
+### 思科实习生：软件定义云网 (Software-defined Cloud Network)
+
+* 基于 NSO 控制器开发 IDC 与运营商网络协同自动化框架。
+* 开发基于 Segment Routing 的广域网专线 QoS 调度系统。
+
+### 实验室项目：面向远程医疗的SDN网络可靠性及安全研究 (Java)
+
+* 基于 SDN 为数据中心远程医疗平台提供防火墙、DDoS 防御、QoS 保障、链路快速恢复、路由环路与黑洞检测能力。
+
+### React Gallery
+
+* React 和 Webpack 制作的画廊应用效果
+
+### Animation Resume
+
+* React 和 Webpack 制作的简历自动演示效果。
 
 
+## 教育经历
 
-## 技能
+1. **北京邮电大学 - 通信工程**             研究生
+	* 校一等奖学金
 
+2. **北京邮电大学 - 通信工程**             本科生
+	* 连续三年国家励志奖学金（专业前 10 %）
 
-* 前端开发
-* Rails 开发
-* Node.js 开发
-* 前端授课
+## 其他
 
-
-
-## 工作经历
-
-
-1. [饥人谷](http://jirengu.com)
-2. 腾讯即时通讯平台部
-3. 阿里巴巴B2B部门
-4. 彩程知人项目组
+cet-6 (525)
 
 
+## 博客
 
-## 链接
+**GitHub: **https://github.com/ShiningDan
+**Animation Resume: https://shiningdan.github.io/react-animation-resume/**
 
-
-* [GitHub](https://github.com/frankfang)
-* [我的文章](https://www.zhihu.com/people/zhihusucks/pins/posts)
-> 如果你喜欢这个效果，Fork [我的项目](https://github.com/jirengu-inc/animating-resume)，打造你自己的简历！`;
+> 如果你喜欢这个效果，Fork [我的项目](https://github.com/ShiningDan/react-animation-resume)，打造你自己的简历！`;
+		
 		this.styleEditorContent = [`/*
-* Hello 
+* Inspired by http://strml.net/
+* 
+* Hello, 我是张雨晨
 *
+* 最近看到了别人用 Vue 做了一个动态的简历，感觉很有意思，所以我也用 React 做了一份简易的动态简历
+* 希望大家能够喜欢 :)
 */
-/* 首先给所有元素加上过渡效果 */
+
+/* 所以我们就开始吧！首先给所有元素加上过渡效果 */
 * {
   -webkit-transition: all .3s;
   transition: all .3s;
@@ -58,7 +75,7 @@ class ReactClass extends React.Component {
 html {
   color: rgb(222,222,222); background: #425261; 
 }
-/* 文字离边框太近了 */
+/* 文字直接显示在页面上，没有任何装饰，真的人反人类呢！所以我们来给文字加点装饰吧~~ */
 .styleEditor {
   background-color: #303030;
   padding: .5em;
@@ -67,14 +84,14 @@ html {
   overflow: auto;
   width: 45vw; height: 90vh;
 }
-/* 代码高亮 */
+/* 作为一个程序员，我们不可以太沉闷哦~~，给自己的代码加一点色彩吧 */
 .token.comment{ color: #857F6B; font-style: italic; }
 .token.selector{ color: #E86E75; }
 .token.property{ color: #F78C6C; }
 .token.punctuation{ color: #88DCFE; }
 .token.function{ color: #82AAFF; }
 
-/* 加点 3D 效果呗 */
+/* 加一点 3D 效果，更加地酷炫 */
 html{
   -webkit-perspective: 1000px;
           perspective: 1000px;
@@ -86,7 +103,9 @@ html{
   -webkit-transform: rotateY(10deg) translateZ(-100px) ;
           transform: rotateY(10deg) translateZ(-100px) ;
 }
-/* 接下来我给自己准备一个编辑器 */
+/* 不知道以上对代码框的修改你是否喜欢呢？ */
+
+/* 接下来我给自己准备一个编辑器，用来存放我的简历内容 */
 .resumeEditor{
   position: fixed; right: 0; top: 0;
   padding: .5em;  margin: .5em;
@@ -102,6 +121,10 @@ html{
 /* 这个简历好像差点什么
  * 对了，这是 Markdown 格式的，我需要变成对 HR 更友好的格式
  * 简单，用开源工具翻译成 HTML 就行了
+ *           3          
+ *           2          
+ *           1          
+ *          啦啦！
  */
 `,
 `
@@ -109,31 +132,39 @@ html{
 .resumeEditor{
   padding: 2em;
 }
+.resumeEditor h1{
+  display: block;
+  width: 80px;
+  margin: 0 auto;
+}
 .resumeEditor h2{
   display: inline-block;
   border-bottom: 1px solid;
   margin: 1em 0 .5em;
 }
-.resumeEditor ul,.resumeEditor ol{
-  list-style: none;
+.resumeEditor h3{
+	display: inline-block;
+	margin: 0.5em 0;
 }
-.resumeEditor ul> li::before{
-  content: '•';
-  margin-right: .5em;
+.resumeEditor ul {
+	list-style: none;
 }
-.resumeEditor ol {
-  counter-reset: section;
-}
-.resumeEditor ol li::before {
-  counter-increment: section;            
-  content: counters(section, ".") " ";  
-  margin-right: .5em;
+.resumeEditor ul>li::before {
+	content: "•";
+	margin-left: 1em;
+	margin-right: 0.5em;
 }
 .resumeEditor blockquote {
   margin: 1em;
   padding: .5em;
   background: #ddd;
 }
+/*
+* 作为一名网络工程师，在开始找工作的前几个月转行前端真的是一件很鲁莽的事 T_T
+* 不过我并不后悔，因为前端真的很有意思！
+* 做自己喜欢的事，人生能有多少机会这么不顾一切呢？
+* I hope you enjoyed this.
+*/
 `];
 	}
 
