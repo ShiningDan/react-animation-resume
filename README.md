@@ -20,4 +20,4 @@ npm run build
 npm run start
 ```
 
-就可以在 http://localhost:8080/build/index.html 上看到项目的展示效果啦
+就可以在 http://localhost:8080/index.html 上看到项目的展示效果啦
