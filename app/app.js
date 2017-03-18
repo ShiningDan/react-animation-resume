@@ -96,6 +96,8 @@ html {
 
 /* 加一点 3D 效果，更加地酷炫 */
 html{
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-perspective: 1000px;
           perspective: 1000px;
 }
