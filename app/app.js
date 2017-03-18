@@ -70,6 +70,10 @@ cet-6 (525)
 
 /* 所以我们就开始吧！首先给所有元素加上过渡效果 */
 * {
+  -webkit-transform-style: preserve-3d;
+  /*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+  -webkit-backface-visibility: hidden;
+  /*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
   -webkit-transition: all .3s;
   transition: all .3s;
 }
