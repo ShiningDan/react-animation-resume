@@ -4,7 +4,6 @@ import StyleEditor from "./StyleEditor.js";
 import ResumeEditor from "./ResumeEditor.js";
 import "./style/reset.css";
 import Prism from "prismjs";
-import co from "co";
 
 class ReactClass extends React.Component {
 	constructor(props) {
