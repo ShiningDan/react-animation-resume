@@ -12,7 +12,7 @@ class ReactClass extends React.Component {
 		this.state = {
 			style: "",
 		};
-		this.interval = 80;
+		this.interval = 40;
 		this.resumeEditorContent = `
 # 张雨晨
 
