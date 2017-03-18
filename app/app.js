@@ -70,6 +70,8 @@ cet-6 (525)
 
 /* 所以我们就开始吧！首先给所有元素加上过渡效果 */
 * {
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-transition: all .3s;
   transition: all .3s;
 }
