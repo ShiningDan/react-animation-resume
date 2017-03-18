@@ -64,14 +64,16 @@ cet-6 (525)
 * 
 * Hello, 我是张雨晨
 *
-* 最近看到了别人用 Vue 做了一个动态的简历，感觉很有意思，所以我也用 React 做了一份简易的动态简历
+* 我用 React 做了一份简易的动态简历
 * 希望大家能够喜欢 :)
 */
 
 /* 所以我们就开始吧！首先给所有元素加上过渡效果 */
 * {
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
+  -webkit-transform-style: preserve-3d;
+  /*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+  -webkit-backface-visibility: hidden;
+  /*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
   -webkit-transition: all .3s;
   transition: all .3s;
 }
