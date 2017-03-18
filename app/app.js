@@ -12,7 +12,7 @@ class ReactClass extends React.Component {
 		this.state = {
 			style: "",
 		};
-		this.interval = 40;
+		this.interval = 80;
 		this.resumeEditorContent = `
 # 张雨晨
 
@@ -70,8 +70,7 @@ cet-6 (525)
 
 /* 所以我们就开始吧！首先给所有元素加上过渡效果 */
 * {
-  -webkit-transition: all 1.6s;
-  transition: all 1.6s;
+  -webkit-transition: all 1s;
 }
 /* 白色背景太单调了，我们来点背景 */
 html {
@@ -165,9 +164,6 @@ html{
   background: #ddd;
 }
 /*
-* 作为一名网络工程师，在开始找工作的前几个月转行前端真的是一件很需要勇气的事情 T_T
-* 不过我并不后悔，因为前端真的很有意思！
-* 做自己喜欢的事，人生能有多少机会这么不顾一切呢？
 * I hope you enjoyed this.
 */
 `];
