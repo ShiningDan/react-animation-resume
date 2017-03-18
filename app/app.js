@@ -4,7 +4,6 @@ import StyleEditor from "./StyleEditor.js";
 import ResumeEditor from "./ResumeEditor.js";
 import "./style/reset.css";
 import Prism from "prismjs";
-import co from "co";
 
 class ReactClass extends React.Component {
 	constructor(props) {
@@ -79,6 +78,7 @@ html {
 }
 /* 文字直接显示在页面上，没有任何装饰，真的人反人类呢！所以我们来给文字加点装饰吧~~ */
 .styleEditor {
+  white-space: pre-wrap;
   pisition: fixed; left: 0; top: 0;
   background-color: #303030;
   padding: .5em;
@@ -96,8 +96,6 @@ html {
 
 /* 加一点 3D 效果，更加地酷炫 */
 html{
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   -webkit-perspective: 1000px;
           perspective: 1000px;
 }
