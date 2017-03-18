@@ -70,8 +70,8 @@ cet-6 (525)
 
 /* 所以我们就开始吧！首先给所有元素加上过渡效果 */
 * {
-  -webkit-transition: all .6s;
-  transition: all .6s;
+  -webkit-transition: all 1.6s;
+  transition: all 1.6s;
 }
 /* 白色背景太单调了，我们来点背景 */
 html {
