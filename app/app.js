@@ -71,6 +71,7 @@ cet-6 (525)
 /* 所以我们就开始吧！首先给所有元素加上过渡效果 */
 * {
   -webkit-transition: all 1s;
+  transition: all 1s;
 }
 /* 白色背景太单调了，我们来点背景 */
 html {
@@ -78,6 +79,7 @@ html {
 }
 /* 文字直接显示在页面上，没有任何装饰，真的人反人类呢！所以我们来给文字加点装饰吧~~ */
 .styleEditor {
+  pisition: fixed; left: 0; top: 0;
   background-color: #303030;
   padding: .5em;
   border: 1px solid;
