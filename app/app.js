@@ -70,6 +70,11 @@ cet-6 (525)
 
 /* 所以我们就开始吧！首先给所有元素加上过渡效果 */
 * {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; 
+ 
+  -webkit-perspective: 1000;
+  perspective: 1000;
   /*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
   -webkit-transition: all .3s;
   transition: all .3s;
